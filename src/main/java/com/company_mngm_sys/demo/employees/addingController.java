@@ -22,25 +22,6 @@ import net.bytebuddy.asm.Advice.Return;
 
 public class addingController {
 
-    // @RequestMapping(value = "/add", method = RequestMethod.GET) // user_entry
-    // public String addEmployees() {
-    // return "<form action=\"/employees/list\">\n" // ここのpathも変えておく
-    // + "<label for=\"fname\">First name:</label><br>\n"
-    // + "<input type=\"text\" id=\"fname\" name=\"fname\"><br>\n"
-    // + "<label for=\"lname\">Last name:</label><br>\n"
-    // + "<input type=\"text\" id=\"lname\" name=\"lname\"><br><br>\n"
-    // + "<input type=\"submit\" value=\"Submit\">\n"
-    // + "</form> ";
-    // };
-
-    // @RequestMapping("/list") // formから得たpath
-    // public String listEmployee(@RequestParam String fname, @RequestParam String
-    // lname) {
-    // return "This is lists of employees" + fname + "" + lname;
-    // };
-
-    // Return "html/list-employees";
-
     @Autowired
     repository repo;
 
