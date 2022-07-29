@@ -28,8 +28,8 @@ public class ClientsController {
 
     @GetMapping("/new")
     public String displayClientForm(Model model) {
-        model.addAttribute("clients", new Clients());
-        return "clients/clients_new";
+        model.addAttribute("client", new Clients());
+        return "clients/client_new";
     }
 
     @PostMapping("/save")

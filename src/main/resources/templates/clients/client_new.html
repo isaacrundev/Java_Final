@@ -8,25 +8,26 @@
   </head>
   <body>
     <h1>New Client</h1>
-    <form action="/clients/save" method="post" th:object="${client}"></form>
-    <br>
-    <label>Company Name</label>
-    <br>
-    <input type="text" th:field="${client.companyName}" />
+    <form action="/clients/save" method="post" th:object="${client}">
+      <br />
+      <label>Company Name</label>
+      <br />
+      <input type="text" th:field="*{companyName}" />
     <br>
     <label>Contact Person Name</label>
     <br>
-    <input type="text" th:field="${client.contactPerson}" />  <br>
+    <input type="text" th:field="*{contactPerson}" />  <br>
     <label>Phone Number</label>  <br>
-    <input type="text" th:field="${client.phoneNumber}" />  <br>
+    <input type="text" th:field="*{phoneNumber}" />  <br>
     <label>Email</label>  <br>
-    <input type="text" th:field="${client.emailAddress}" />  <br>
+    <input type="text" th:field="*{emailAddress}" />  <br>
     <label>Department</label>  <br>
-    <input type="text" th:field="${client.department}" />  <br>
+    <input type="text" th:field="*{department}" />  <br>
     <label>Position</label>  <br>
-    <input type="text" th:field="${client.position}" />  <br>
+    <input type="text" th:field="*{position}" />  <br>
     <label>Notes</label>  <br>
-    <textarea type="text" th:field="${client.notes}" /></textarea>  <br>
+    <textarea type="text" th:field="*{notes}" /></textarea>  <br>
     <button type="submit">Save</button>
+    </form>
   </body>
 </html>
