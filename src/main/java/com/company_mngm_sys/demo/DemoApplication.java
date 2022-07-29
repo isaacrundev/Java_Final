@@ -1,6 +1,5 @@
 package com.company_mngm_sys.demo;
 
-
 //don't change
 
 import org.springframework.boot.SpringApplication;

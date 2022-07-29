@@ -10,23 +10,25 @@ import javax.persistence.Id;
 public class Employees {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     // tableになる
-    private String employeeID;
+    private long employeeID;  
     private int firstName;
     private boolean lastName;
     private String email;
     private String gender;
+    private String password;  //後で
 
     public Employees() {
     }
 
     // (constractor)IDは自動で作られる
-    public Employees(int firstName, boolean lastName, String email, String gender) {
+    public Employees(int firstName, boolean lastName, String email, String gender, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
+        this.password = password;
     }
 
     public int getFirstName() {
@@ -61,4 +63,14 @@ public class Employees {
         this.gender = gender;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
+    
 }

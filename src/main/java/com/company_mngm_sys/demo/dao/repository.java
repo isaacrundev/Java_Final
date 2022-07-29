@@ -1,4 +1,4 @@
-package com.company_mngm_sys;
+package com.company_mngm_sys.demo.dao;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
