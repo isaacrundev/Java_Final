@@ -1,23 +1,25 @@
 package com.company_mngm_sys.demo.employees;
 
-import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.company_mngm_sys.repository;
 
-@RestController // employeeをaddする用のクラス
-@RequestMapping("/employee") // URLとコントローラーのクラスまたはメソッドを紐づけることができるアノテーション
+@Controller // employeeをaddする用のクラス
+@RequestMapping("/employees") // URLとコントローラーのクラスまたはメソッドを紐づけることができるアノテーション
 // employeeの下に下記の表示されます(request by default)
 
 public class addingController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET) // user_entry
-    public String addEmployee() {
-        return "<form action=\"/employee/list\">\n" // ここのpathも変えておく
+    public String addEmployees() {
+        return "<form action=\"/employees/list\">\n" // ここのpathも変えておく
                 + "<label for=\"fname\">First name:</label><br>\n"
                 + "<input type=\"text\" id=\"fname\" name=\"fname\"><br>\n"
                 + "<label for=\"lname\">Last name:</label><br>\n"
@@ -26,22 +28,44 @@ public class addingController {
                 + "</form> ";
     };
 
-    @RequestMapping("/list") // formから得たpath
-    public String listEmployee(@RequestParam String fname, @RequestParam String lname) {
-        return "This is lists of employees" + fname + "" + lname;
-    };
+    // @RequestMapping("/list") // formから得たpath
+    // public String listEmployee(@RequestParam String fname, @RequestParam String
+    // lname) {
+    // return "This is lists of employees" + fname + "" + lname;
+    // };
+    @Autowired
+    repository repo;
 
-    @RequestMapping("/{id}")
-    public String id(@PathVariable String id) {
-        return "Employee ID: " + id;
-    };
+    @GetMapping
+    public String displayEmployees(Model model) {
+        List<Employees> employees = repo.findAll();
+        model.addAttribute("employees", employees);
 
-    @RequestMapping("/{id}/department")
-    public List<String> displayStringJson() {
-        return Arrays.asList("HR", "IT", "Customer servise");
+        return "employees/list-employees";
     }
 
-   //json dataをここに作ることができる
+    @GetMapping("/new")
+    public String displayEmployeeForm(Model model) {
+        model.addAttribute("employees", new Employees());
+        return "employees/new-employee";
+    }
 
+    @PostMapping("/save")
+    public String createEmployees(Employees employees) {
+        repo.save(employees);
+        return "redirect:/employees"; // コロンはリクエストを返す
+    }
+
+    // @RequestMapping("/{id}")
+    // public String id(@PathVariable String id) {
+    // return "Employee ID: " + id;
+    // };
+
+    // @RequestMapping("/{id}/department")
+    // public List<String> displayStringJson() {
+    // return Arrays.asList("HR", "IT", "Customer servise");
+    // }
+
+    // json dataをここに作ることができる
 
 }
