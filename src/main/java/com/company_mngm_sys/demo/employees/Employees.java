@@ -13,8 +13,8 @@ public class Employees {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // tableになる
     private long employeeID;  
-    private int firstName;
-    private boolean lastName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String gender;
     private String password;  //後で
@@ -22,8 +22,7 @@ public class Employees {
     public Employees() {
     }
 
-    // (constractor)IDは自動で作られる
-    public Employees(int firstName, boolean lastName, String email, String gender, String password) {
+    public Employees(String firstName, String lastName, String email, String gender, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -31,19 +30,19 @@ public class Employees {
         this.password = password;
     }
 
-    public int getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(int firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public boolean isLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(boolean lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -71,6 +70,6 @@ public class Employees {
         this.password = password;
     }
 
-    
+   
     
 }

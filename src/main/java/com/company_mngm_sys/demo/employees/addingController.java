@@ -39,10 +39,12 @@ public class addingController {
         return "employees/new-employees";
     }
 
+    // I'm gonna redirect to this page after adding
     @PostMapping("/save")
     public String createEmployees(Employees employees) {
         repo.save(employees);
         return "redirect:/employees"; // コロンはリクエストを返す
+
     }
 
 }
