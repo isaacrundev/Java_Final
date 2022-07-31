@@ -22,7 +22,13 @@
     <label>Email</label>  <br>
     <input type="text" th:field="*{emailAddress}" />  <br>
     <label>Department</label>  <br>
-    <input type="text" th:field="*{department}" />  <br>
+    <select th:field="*{department}">
+  <option th:value="Administration">Administration</option>
+  <option th:value="Human_Resources">Human Resources</option>
+  <option th:value="Sales">Sales</option>
+  <option th:value="Marketing">Marketing</option>
+</select>
+    <!-- <input type="text" th:field="*{department}" />  <br> -->
     <label>Position</label>  <br>
     <input type="text" th:field="*{position}" />  <br>
     <label>Notes</label>  <br>
