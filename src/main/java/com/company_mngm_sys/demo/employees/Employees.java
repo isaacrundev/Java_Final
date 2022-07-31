@@ -4,30 +4,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-//pojo
+// pojo
 public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // tableになる
-    private long employeeID;  
+    private long employeeID;
     private String firstName;
     private String lastName;
     private String email;
     private String gender;
-    private String password;  //後で
+    private String password;
+    private int birthday;
+
+    // @OneToMany
+    // private List<Employees> employees;
+    // private List<Employees> employees;
 
     public Employees() {
     }
 
-    public Employees(String firstName, String lastName, String email, String gender, String password) {
+    public Employees(String firstName, String lastName, String email, String gender, String password, int birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
         this.password = password;
+        this.birthday = birthday;
     }
 
     public String getFirstName() {
@@ -70,6 +77,12 @@ public class Employees {
         this.password = password;
     }
 
-   
-    
+    public int getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(int birthday) {
+        this.birthday = birthday;
+    }
+
 }
