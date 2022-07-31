@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.company_mngm_sys.demo.dao.repository;
+import com.company_mngm_sys.demo.dao.EmployeeRepo;
 
 import net.bytebuddy.asm.Advice.Return;
 
@@ -23,7 +23,11 @@ import net.bytebuddy.asm.Advice.Return;
 public class addingController {
 
     @Autowired
-    repository repo;
+    EmployeeRepo repo;
+
+    // @Autowired 
+	// EmployeeRepo empRepo;
+
 
     @GetMapping // lists
     public String displayEmployees(Model model) {
