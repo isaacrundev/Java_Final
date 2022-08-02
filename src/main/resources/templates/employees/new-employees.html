@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <!-- <head th:replace="layouts :: head"></head> -->
+  <body>
+    <!-- <nav th:replace="layouts :: navbar"></nav> -->
+
+    <div class="container">
+      <form action="/employees/save" method="POST" th:object="${employees}">
+        <fieldset>
+          <legend>New Employee</legend>
+          <hr class="mb-4" />
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="First Name"
+              th:field="*{firstName}"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Last Name"
+              th:field="*{lastName}"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Email"
+              th:field="*{email}"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Birthday</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Birthday"
+              th:field="*{birthday}"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Employee</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
