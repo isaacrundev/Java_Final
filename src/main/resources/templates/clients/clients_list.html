@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Client List</h1>
+    <br />
+    <a th:href="@{/clients/new}">New Client</a>
+    <!-- <a href="/clients/clients_new">New Client</a> -->
+    <hr />
+    <table>
+      <thead>
+        <th>Company Name</th>
+        <th>Contact Person Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Position</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr th:each="field:${clientList}">
+          <td th:text="${field.companyName}"></td>
+          <td th:text="${field.contactPerson}"></td>
+          <td th:text="${field.phoneNumber}"></td>
+          <td th:text="${field.emailAddress}"></td>
+          <td th:text="${field.department}"></td>
+          <td th:text="${field.position}"></td>
+          <td th:text="${field.notes}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
