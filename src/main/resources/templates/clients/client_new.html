@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>New Client</h1>
+    <form action="/clients/save" method="post" th:object="${client}">
+      <br />
+      <label>Company Name</label>
+      <br />
+      <input type="text" th:field="*{companyName}" />
+      <br />
+      <label>Contact Person Name</label>
+      <br />
+      <input type="text" th:field="*{contactPerson}" /> <br />
+      <label>Phone Number</label> <br />
+      <input type="text" th:field="*{phoneNumber}" /> <br />
+      <label>Email</label> <br />
+      <input type="text" th:field="*{emailAddress}" /> <br />
+      <label>Department</label> <br />
+      <select th:field="*{department}">
+        <option th:value="Administration">Administration</option>
+        <option th:value="Human_Resources">Human Resources</option>
+        <option th:value="Sales">Sales</option>
+        <option th:value="Marketing">Marketing</option>
+      </select>
+      <br />
+      <label>Position</label>
+      <br />
+      <select th:field="*{position}">
+        <option th:value="CEO">CEO</option>
+        <option th:value="Manager">Manager</option>
+        <option th:value="Supervisor">Supervisor</option>
+        <option th:value="Officer">Officer</option>
+      </select>
+      <br />
+      <label>Notes</label> <br />
+      <textarea cols="30" rows="10" th:field="*{notes}"></textarea>
+      <br />
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
